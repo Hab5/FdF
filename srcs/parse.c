@@ -98,7 +98,7 @@ static void					print_tr_ar(
     {
         while (x != x_sz)
         {
-			printf("x:%f, y:%f, z:%f\t", ar[x][y][X], ar[x][y][Y], ar[x][y][Z]);
+			printf("xyz:%.1f,%.1f,%.1f  ", (ar[x][y])[X], (ar[x][y])[Y], (ar[x][y])[Z]);
                 x++;
         }
         printf("\n");

@@ -6,18 +6,18 @@ int						to_double_coord(
 	int y_sz,
 	t_p **ret)
 {
-	int		i;
-	int		j;
+	int		x;
+	int		y;
 	t_p		*p;
 
 	if (!(p = malloc(x_sz * y_sz * sizeof(t_p))))
 		return (1);
-	i = -1;
-	while (++i < x_sz)
+	x = -1;
+	while (++x < x_sz)
 	{
-		j = -1;
-		while (++j < y_sz)
-			ft_memcpy(&p[i * x_sz + j], &(t_p){i, j, ar[i][j]}, sizeof(t_p));
+		y = -1;
+		while (++y < y_sz)
+			ft_memcpy(&p[x * y_sz + y], &(t_p){x, y, ar[x][y]}, sizeof(t_p));
 	}
 	*ret = p;
 	return (0);
