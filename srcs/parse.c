@@ -20,7 +20,7 @@ char free_grid(long int ***gridref, const int i)
     int n;
     n = 0;
 
-    while(n<i)
+    while(n < i)
     {
         free((*gridref)[n]);
         (*gridref)[n] = NULL;
@@ -60,74 +60,22 @@ long int **parse(const int column, const int line, char *map)
     return(grid);
 }
 
-static void					print_input_ar(
-	long **ar,
-	int x_sz,
-	int y_sz)
+void print_grid(long **grid, int x, int y)
 {
-	int		x;
-	int		y;
+	int		i;
+	int		j;
 
-	x = 0;
-	y = 0;
-    while (y != y_sz)
+	i = 0;
+	j = 0;
+    while (j != y)
     {
-        while (x != x_sz)
+        while (i != x)
         {
-            printf("%ld ", ar[x][y]);
-                x++;
+            printf("[%ld] ", grid[i][j]);
+                i++;
         }
         printf("\n");
-        x=0;
-        y++;
+        i=0;
+        j++;
     }
-}
-
-static void					print_tr_ar(
-	t_p		*p_ar,
-	int		x_sz,
-	int		y_sz)
-{
-	t_p (*const	ar)[y_sz] = (t_p(*)[y_sz])p_ar;
-	int		x;
-	int		y;
-
-	x = 0;
-	y = 0;
-    while (y != y_sz)
-    {
-        while (x != x_sz)
-        {
-			printf("xyz:%.1f,%.1f,%.1f  ", (ar[x][y])[X], (ar[x][y])[Y], (ar[x][y])[Z]);
-                x++;
-        }
-        printf("\n");
-        x=0;
-        y++;
-    }
-}
-
-int main(int argc, char **argv)
-{
-	long int	**array;
-	t_p			*tr_array;
-	int			column;
-	int			line;
-
-	(void)argc;
-	tr_array = 0;
-	column = count_columns(get_line(argv[1]));
-	line = count_rows(argv[1]); 
-	if ((array = parse(column, line, argv[1])) &&
-		!to_double_coord(array, column, line, &tr_array) &&
-		coordinate_tr(column, line, tr_array))
-	{
-			print_input_ar(array, column, line);
-			print_tr_ar(tr_array, column, line);
-	}
-	if (tr_array)
-		free(tr_array);
-	if (array)
-		free_grid(&array, count_columns(get_line(argv[1])));
-    return 0; 
 }

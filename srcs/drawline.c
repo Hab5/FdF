@@ -38,8 +38,20 @@ void	draw_line(int x1, int y1, int x2, int y2, void *mlx, void *win)
     void *win_ptr;
 
     mlx_ptr = mlx_init();
-    win_ptr = mlx_new_window(mlx_ptr, 500, 500, "pls work (500x500)");
-    draw_line(0, 0, 235, 349, mlx_ptr, win_ptr);
-    draw_line(250, 130, 250, 500, mlx_ptr, win_ptr);
+    win_ptr = mlx_new_window(mlx_ptr, 1080, 720, "pls work (800x700)");
+    
+    draw_line(0, 0, 70, 40, mlx_ptr, win_ptr);draw_line(70, 40, 140, 80, mlx_ptr, win_ptr);
+    draw_line(0, 0, 0, 80, mlx_ptr, win_ptr);
+    draw_line(0, 80, 70, 120, mlx_ptr, win_ptr);
+    draw_line(0, 80, 0, 160, mlx_ptr, win_ptr);
+    draw_line(0, 160, 70, 200, mlx_ptr, win_ptr);
+    draw_line(0, 160, 0, 240, mlx_ptr, win_ptr);
+    draw_line(0, 240, 70, 280, mlx_ptr, win_ptr);
+    
+    
+    draw_line(70, 40, 70, 120, mlx_ptr, win_ptr);
+    draw_line(70, 120, 70, 200, mlx_ptr, win_ptr);
+    draw_line(70, 200, 70, 280, mlx_ptr, win_ptr);
+    //draw_line(70, 200, 70, 240, mlx_ptr, win_ptr);
     mlx_loop(mlx_ptr);
 } 
