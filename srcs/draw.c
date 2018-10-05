@@ -59,61 +59,6 @@ void draw_y(void *mlx, double ***coordtable, int y, int x, void *win)
         j++;
     }
 }
- 
-  /*  int coordinates[4] = {200, 0, 200, 143};
-    draw_line(coordinates, mlx, win);
-    
-    coordinates[0] = 200;
-    coordinates[1] = 143;
-    coordinates[2] = 200;
-    coordinates[3] = 286;
-    draw_line(coordinates, mlx, win);
-    
-    coordinates[0] = 200;
-    coordinates[1] = 286;
-    coordinates[2] = 200;
-    coordinates[3] = 428;
-    draw_line(coordinates, mlx, win);
-    
-    
-    coordinates[0] = 200;
-    coordinates[1] = 0;
-    coordinates[2] = 200;
-    coordinates[3] = 143;
-    draw_line(coordinates, mlx, win);
-
-    coordinates[0] = 200;
-    coordinates[1] = 143;
-    coordinates[2] = 200;
-    coordinates[3] = 286;
-    draw_line(coordinates, mlx, win);
-    
-    coordinates[0] = 200;
-    coordinates[1] = 286;
-    coordinates[2] = 200;
-    coordinates[3] = 428;
-    draw_line(coordinates, mlx, win);
-
-
-    coordinates[0] = 437;
-    coordinates[1] = 3;
-    coordinates[2] = 243;
-    coordinates[3] = 103;
-    draw_line(coordinates, mlx, win);
-
-    coordinates[0] = 145;
-    coordinates[1] = 156;
-    coordinates[2] = 243;
-    coordinates[3] = 103;
-    draw_line(coordinates, mlx, win);
-    
-    coordinates[0] = 243;
-    coordinates[1] = 103;
-    coordinates[2] = 340;
-    coordinates[3] = 50;
-    draw_line(coordinates, mlx, win);
-*/
-
 
 int main(int argc, char **argv)
 {
@@ -123,7 +68,7 @@ int main(int argc, char **argv)
     int x = count_columns(get_line(argv[1]));
     int y = count_rows(argv[1]);
     mlx = mlx_init();
-    win = mlx_new_window(mlx, 800, 700, "800x700");
+    win = mlx_new_window(mlx, 1270, 720, "800x700");
 
     long **grid = parse(x, y, argv[1]);
     double ***positions = iso_xy(grid, x, y);

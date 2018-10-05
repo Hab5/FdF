@@ -22,13 +22,12 @@ double ***allocate_xyz(const int x, const int y, const int z)
     return (xyz);
 }
 
-
 double ***iso_xy(long **grid, const int x, const int y)
 {
     int i;
     int j;
     double ***positions;
-    
+
     positions = allocate_xyz(x, y, 2);
     i = -1;
     j = -1;
@@ -38,16 +37,12 @@ double ***iso_xy(long **grid, const int x, const int y)
     {
         while(++i != x)
         {
-            
+
             positions[i][j][0] = (0.50 + ((i-(j))/sqrt(2))
-                    *0.50)*(800) / 50;
-                //(550/sqrt(x*x + y*y))*(j - i + y - 0.5);  
-                //(((i-grid[i][j]) * cos(30)));
-            
+                    *0.50)*1270 / 50 + 600;
+
             positions[i][j][1] = (0.50 + ((i + -(grid[i][j]*2) + (j))/sqrt(6)
-                        *0.50)*700) / 50;
-                //50 + (600/sqrt(x*x+y*y))*(-0.11*grid[i][j] + 0.5*i + -0.5*j); 
-                //(((j + (i + grid[i][j])) * sin(30))); 
+                    *0.50)*720) / 50 + 100;
         }
         i = -1;
     }
