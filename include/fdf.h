@@ -8,10 +8,6 @@
 # include "mlx.h"
 # include "../gnl/get_next_line.h"
 
-# define X 0
-# define Y 1
-# define Z 2
-
 void print_input_ar(long **ar, int x_sz, int y_sz);
 
 double ***allocate_xyz(const int x, const int y, const int z);
@@ -29,5 +25,6 @@ int count_rows(char *map);
 int count_columns(char *line);
 
 void draw_line(int pos[4], void *mlx_ptr, void *win_ptr);
-void draw_coordtable(void *mlx, double ***positions, int y, int x, void *win);
+void draw_x(double ***positions, int y, int x, void *mlx, void *win);
+void draw_y(double ***positions, int y, int x, void *mlx, void *win);
 #endif
