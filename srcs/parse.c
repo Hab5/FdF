@@ -12,10 +12,10 @@ long int **allocate_grid(const int x, const int y)
     return grid;
 }
 
-char free_grid(long int ***gridref, const int i)
+int free_grid(long int ***gridref, const int i)
 {
     if( i<0 || !gridref || !*gridref )
-        return 0;
+        return (0);
     
     int n;
     n = 0;
@@ -27,8 +27,9 @@ char free_grid(long int ***gridref, const int i)
         n++;
     }
   
-    free(*gridref), *gridref=NULL;
-    return 1;
+    free(*gridref);
+    *gridref=NULL;
+    return (1);
 }
 
 long int **parse(const int column, const int line, char *map)
