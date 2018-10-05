@@ -21,8 +21,8 @@ int main(int argc, char **argv)
     printf("INPUT MAP: \n");
     print_grid(grid, x, y);
     printf("\n");
-    printf("ISOMETRIC MAPPING : \n");
-    print_iso(positions, x, y);
+    //printf("ISOMETRIC MAPPING : \n");
+    //print_iso(positions, x, y);
 	free_grid(&grid, count_columns(get_line(argv[1])));
 
     mlx_loop(mlx);
