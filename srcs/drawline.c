@@ -49,7 +49,7 @@ void drawline(int pos[4], void *mlx, void *win)
 }
 
 
-int main(void)
+/*int main(void)
 {
     void *mlx_ptr;
     void *win_ptr;
@@ -59,9 +59,9 @@ int main(void)
     win_ptr = mlx_new_window(mlx_ptr, 800, 700, "pls work (800x700)");
     
     
-    drawline(pos, mlx_ptr, win_ptr);
+    draw_line(pos, mlx_ptr, win_ptr);
     
-    /*draw_line(pos, mlx_ptr, win_ptr);
+    draw_line(pos, mlx_ptr, win_ptr);
     
     draw_line(437, 3, 534, 56, mlx_ptr, win_ptr);
     draw_line(534, 56, 632, 109, mlx_ptr, win_ptr);
@@ -74,6 +74,6 @@ int main(void)
     draw_line(340, 50, 437, 3, mlx_ptr, win_ptr);
     draw_line(340, 50, 437, 3, mlx_ptr, win_ptr);
     draw_line(340, 50, 437, 3, mlx_ptr, win_ptr);
-*/
+
     mlx_loop(mlx_ptr);
-}
+}*/

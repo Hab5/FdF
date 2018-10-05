@@ -7,7 +7,7 @@ double ***allocate_xyz(const int x, const int y, const int z)
     i=-1;
     j=-1;
     
-    double ***xyz = (double ***)malloc(x * sizeof(double**));
+    double ***xyz = malloc(x * sizeof(double**));
 
     while(++i < x)
     {    
@@ -38,10 +38,16 @@ double ***iso_xy(long **grid, const int x, const int y)
     {
         while(++i != x)
         {
-            positions[i][j][0] = (550/sqrt(x*x + y*y))*(i - j + y - 0.5);  
-                //((i-grid[i][j])/sqrt(2));
-            positions[i][j][1] =  50 + (600/sqrt(x*x+y*y))*(-0.11*grid[i][j] + 0.5*j + -0.5*i); 
-                //((i + (j*2) + grid[i][j])/sqrt(6));
+            
+            positions[i][j][0] = (0.50 + ((i-(j))/sqrt(2))
+                    *0.50)*(800) / 50;
+                //(550/sqrt(x*x + y*y))*(j - i + y - 0.5);  
+                //(((i-grid[i][j]) * cos(30)));
+            
+            positions[i][j][1] = (0.50 + ((i + -(grid[i][j]*2) + (j))/sqrt(6)
+                        *0.50)*700) / 50;
+                //50 + (600/sqrt(x*x+y*y))*(-0.11*grid[i][j] + 0.5*i + -0.5*j); 
+                //(((j + (i + grid[i][j])) * sin(30))); 
         }
         i = -1;
     }
@@ -55,22 +61,14 @@ void print_iso(double ***positions, int x, int y)
 
     while(j != y)
     {
-        i = 0;
         while(i != x)
         {
-            while(k != 2)
-            {
-                if(k==0)
-                    printf("[%.1f",positions[i][j][0]);
-                if(k==1)
-                    printf("||%.1f] ",positions[i][j][1]);
-                k++;
-            }
+            printf("[%G",positions[i][j][0]);
+            printf("||%G] ",positions[i][j][1]);
             i++;
-            k=0;
         }
-        i=0;
         j++;
+        i=0;
         printf("\n");
     }
 }

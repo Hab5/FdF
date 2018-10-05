@@ -5,6 +5,8 @@ int main(int argc, char **argv)
 	double ***positions;
 	int x;
 	int y;
+    void *mlx;
+    void *win;
 
 	x = count_columns(get_line(argv[1]));
 	y = count_rows(argv[1]);
