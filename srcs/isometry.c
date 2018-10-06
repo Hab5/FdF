@@ -38,7 +38,7 @@ double ***iso_xy(long **grid, const int x, const int y)
         {
 
             positions[i][j][0] = (0.5 + ((i-j)/sqrt(2)) * 0.5)
-                                    *WIDTH / sqrt(x*y/1.5) + 600;
+                                    *WIDTH / sqrt(x*y/1.5) + 400;
             positions[i][j][1] = (0.5 + ((i + -(grid[i][j]*RATIO) + j)/sqrt(6)
                                 * 0.5)*HEIGHT) / sqrt(x*y/1.5) + 150;
         }

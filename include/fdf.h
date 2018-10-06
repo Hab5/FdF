@@ -8,8 +8,9 @@
 # include "mlx.h"
 # include "../gnl/get_next_line.h"
 
-#define HEIGHT 720
-#define WIDTH 1280
+#define WIDTH 800
+#define HEIGHT 700
+#define COLOR 0xff00
 #define RATIO 1
 
 double ***allocate_xyz(const int x, const int y, const int z);

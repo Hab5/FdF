@@ -26,7 +26,7 @@ int main(int argc, char **argv)
         return 0;
     positions = iso_xy(grid, x, y);
     mlx = mlx_init();
-    win = mlx_new_window(mlx, 1280, 720, "1280x720");
+    win = mlx_new_window(mlx, 900, 700, "1000x700");
 
     mlx_key_hook(win, key_exit, mlx);
     draw_x(positions, y, x, mlx, win);
