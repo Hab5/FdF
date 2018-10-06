@@ -1,4 +1,14 @@
 #include "../include/fdf.h"
+
+int key_exit(int key)
+{
+    if (key == 53)
+    {
+        exit(EXIT_SUCCESS);
+    }
+    return (0);
+}
+
 int main(int argc, char **argv)
 {
 	long int **grid;
@@ -7,24 +17,20 @@ int main(int argc, char **argv)
 	int y;
     void *mlx;
     void *win;
+    (void)argc;
 
-	x = count_columns(get_line(argv[1]));
+	x = count_columns(argv[1]);
 	y = count_rows(argv[1]);
-    grid = parse(x, y, argv[1]);
+    grid = NULL;
+    if(!(grid = parse(x, y, argv[1])))
+        return 0;
     positions = iso_xy(grid, x, y);
     mlx = mlx_init();
     win = mlx_new_window(mlx, 1280, 720, "1280x720");
 
+    mlx_key_hook(win, key_exit, mlx);
     draw_x(positions, y, x, mlx, win);
     draw_y(positions, y, x, mlx, win);
-
-    printf("INPUT MAP: \n");
-    print_grid(grid, x, y);
-    printf("\n");
-    //printf("ISOMETRIC MAPPING : \n");
-    //print_iso(positions, x, y);
-	free_grid(&grid, count_columns(get_line(argv[1])));
-
     mlx_loop(mlx);
     return 0;
 }

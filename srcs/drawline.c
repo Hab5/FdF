@@ -13,7 +13,7 @@ void	draw_line(int draw[4], void *mlx, void *win)
 
     while (1)
     {
-        mlx_pixel_put(mlx, win, draw[0], draw[1], 0x6400); 
+        mlx_pixel_put(mlx, win, draw[0], draw[1], 0xffa500); 
         if (draw[0] == draw[2] && draw[1] == draw[3])
             break;
         e2 = err;
