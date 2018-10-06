@@ -8,8 +8,8 @@
 # include "mlx.h"
 # include "../gnl/get_next_line.h"
 
-#define WIDTH 800
-#define HEIGHT 700
+#define VRWIDTH 1200
+#define VRHEIGHT 1200
 #define COLOR 0xff00
 #define RATIO 1
 

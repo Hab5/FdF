@@ -37,10 +37,10 @@ double ***iso_xy(long **grid, const int x, const int y)
         while(++i != x)
         {
 
-            positions[i][j][0] = (0.5 + ((i-j)/sqrt(2)) * 0.5)
-                                    *WIDTH / sqrt(x*y/1.5) + 400;
-            positions[i][j][1] = (0.5 + ((i + -(grid[i][j]*RATIO) + j)/sqrt(6)
-                                * 0.5)*HEIGHT) / sqrt(x*y/1.5) + 150;
+            positions[i][j][0] = (0.5 + ((i - j)/sqrt(2)) * 0.5)
+                                    * VRWIDTH / sqrt(x * y/1.5) + 600;
+            positions[i][j][1] = (0.5 + ((i + -(grid[i][j] * RATIO) + j)/sqrt(6)
+                                * 0.5) * VRHEIGHT) / sqrt(x * y/1.5) + 50;
         }
         i = -1;
     }
