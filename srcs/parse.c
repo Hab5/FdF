@@ -7,6 +7,11 @@ char *get_line(char *map)
     char *line;
 
     fd = open(map, O_RDONLY);
+    if (fd < 0)
+    {
+        ft_putstr("Invalid File.");
+        exit (EXIT_SUCCESS);
+    }
     while(get_next_line(fd, &str) != 0)
     {
         line = str;
@@ -78,7 +83,7 @@ long int **parse(const int column, const int line, char *map)
         while (++x < column)
         {
             if(clean_str[x] == NULL)
-                return 0;
+                return (0);
             grid[x][y] = ft_atoi(clean_str[x]);
         }
     }
