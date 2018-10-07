@@ -6,19 +6,20 @@
 # include <math.h>
 # include <fcntl.h>
 # include "mlx.h"
-# include "../gnl/get_next_line.h"
+# include "gnl/get_next_line.h"
 
 #define VRWIDTH 1200
 #define VRHEIGHT 1200
-#define COLOR 0xff00
+#define OFFSETX 600
+#define OFFSETY 50
 #define RATIO 1
-
-double ***allocate_xyz(const int x, const int y, const int z);
-double ***iso_xy(long **grid, const int x, const int y);
+#define COLOR 0xff00
 
 long int **allocate_grid(int x, int y);
-int free_grid(long int ***gridref, const int i);
+char **clean(char *str);
 long int **parse(int line, int column, char *map);
+double ***allocate_xyz(const int x, const int y, const int z);
+double ***iso_xy(long **grid, const int x, const int y);
 
 char *get_line(char *map);
 int count_rows(char *map);
@@ -30,4 +31,5 @@ int draw_y(double ***positions, int y, int x, void *mlx, void *win);
 
 int key_exit(int key);
 float key_down(int key);
+
 #endif

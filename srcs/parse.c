@@ -1,35 +1,61 @@
 #include "../include/fdf.h"
 
-long int **allocate_grid(const int x, const int y)
+char *get_line(char *map)
 {
-    int i = 0;
-    long int **grid = malloc(sizeof(*grid) * x);
-    while (i < x)
+    int fd;
+    char *str;
+    char *line;
+
+    fd = open(map, O_RDONLY);
+    while(get_next_line(fd, &str) != 0)
     {
-        grid[i] = malloc(sizeof(grid[i]) * y);
-        i++;
+        line = str;
     }
-    return grid;
+    return(line);
 }
 
-int free_grid(long int ***gridref, const int y)
+int count_rows(char *map)
+{
+    int fd;
+    char *str;
+    int lines;
+
+    lines = 0;
+    fd = open(map, O_RDONLY);
+
+    while (get_next_line(fd, &str) != 0)
+    {
+        lines++;
+    }
+    return(lines);
+}
+
+int count_columns(char *map)
 {
     int i;
+    int space;
+    char *line;
+
+    line = get_line(map);
+    space = 0;
     i = 0;
-
-    if( i<0 || !gridref || !*gridref )
-        return (0);
-
-    while(i < y)
+    while(line[i++])
     {
-        free((*gridref)[i]);
-        (*gridref)[i] = NULL;
-        i++;
+        if (line[i] == ' ' && line[i - 1] != ' ')
+            space++;
     }
+    if (line[ft_strlen(line) - 1] != ' ')
+        return(space + 1);
+    return (space);
+}
 
-    free(*gridref);
-    *gridref=NULL;
-    return (1);
+char **clean(char *str)
+{
+    char **clean_str;
+    char *tmp;
+    tmp = ft_strtrim(str);
+    clean_str = ft_strsplit(tmp, ' ');
+    return (clean_str);
 }
 
 long int **parse(const int column, const int line, char *map)
@@ -38,7 +64,6 @@ long int **parse(const int column, const int line, char *map)
     int y;
     int x;
     char *str;
-    char *tmp;
     int fd;
     char **clean_str;
 
@@ -48,11 +73,12 @@ long int **parse(const int column, const int line, char *map)
     while (++y < line)
     {
         get_next_line(fd, &str);
-        tmp = ft_strtrim(str);
-        clean_str = ft_strsplit(tmp, ' ');
+        clean_str = clean(str);
         x = -1;
         while (++x < column)
         {
+            if(clean_str[x] == NULL)
+                return 0;
             grid[x][y] = ft_atoi(clean_str[x]);
         }
     }
