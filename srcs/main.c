@@ -15,6 +15,27 @@ long int			**allocate_grid(const int x, const int y)
 	return (grid);
 }
 
+double				***allocate_xyz(const int x, const int y, const int z)
+{
+	int				i;
+	int				j;
+	double			***xyz;
+
+	i = -1;
+	j = -1;
+	xyz = malloc(x * sizeof(double**));
+	while (++i < x)
+	{
+		xyz[i] = malloc(y * sizeof(double *));
+		while (++j < y)
+		{
+			xyz[i][j] = malloc(z * sizeof(double));
+		}
+		j = -1;
+	}
+	return (xyz);
+}
+
 int					key_exit(int key)
 {
 	if (key == 53)
