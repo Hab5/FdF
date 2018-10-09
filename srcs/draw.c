@@ -1,29 +1,35 @@
 #include "../include/fdf.h"
 
+t_line init_bresenham(int draw[4])
+{
+    t_line e;
+    e.dx =  abs(draw[2] - draw[0]);
+    e.dy = abs(draw[3] - draw[1]);
+    e.err = (e.dx > e.dy ? e.dx : -e.dy) / 2;
+    e.sx = draw[0] < draw[2] ? 1 : -1;
+    e.sy = draw[1] < draw[3] ? 1 : -1;
+    return (e);
+}
 void	draw_line(int draw[4], void *mlx, void *win)
 {
-    int dx, dy, sx, sy, err, e2;
-    dx =  abs(draw[2] - draw[0]);
-    dy = abs(draw[3] - draw[1]);
-    err = (dx > dy ? dx : -dy) / 2;
-    sx = draw[0] < draw[2] ? 1 : -1;
-    sy = draw[1] < draw[3] ? 1 : -1;
-
+    t_line e;
+    
+    e = init_bresenham(draw);
     while (1)
     {
         mlx_pixel_put(mlx, win, draw[0], draw[1], COLOR); 
         if (draw[0] == draw[2] && draw[1] == draw[3])
             break;
-        e2 = err;
-        if (e2 > -dx)
+        e.e2 = e.err;
+        if (e.e2 > -e.dx)
         {
-            err -= dy;
-            draw[0] += sx;
+            e.err -= e.dy;
+            draw[0] += e.sx;
         }
-        if (e2 < dy)
+        if (e.e2 < e.dy)
         {
-            err += dx;
-            draw[1] += sy;
+            e.err += e.dx;
+            draw[1] += e.sy;
         }
     }
 }
@@ -45,7 +51,6 @@ int draw_x(double ***coordtable, int y, int x, void *mlx, void *win)
             draw[2] = coordtable[i+1][j][0]; 
             draw[3] = coordtable[i+1][j][1];
             draw_line(draw, mlx, win);
-            //mlx_pixel_put(mlx, win, coordtable[i][j][0], coordtable[i][j][1], 0x00FFFF);
         }
     }
     return 1;
@@ -68,7 +73,6 @@ int draw_y(double ***coordtable, int y, int x, void *mlx, void *win)
             draw[2] = coordtable[i][j+1][0];
             draw[3] = coordtable[i][j+1][1];
             draw_line(draw, mlx, win);
-            //mlx_pixel_put(mlx, win, coordtable[i][j][0], coordtable[i][j][1], 0x00FFFF);
         }
     }
     return 1;

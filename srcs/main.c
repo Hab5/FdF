@@ -15,9 +15,7 @@ long int **allocate_grid(const int x, const int y)
 int key_exit(int key)
 {
     if (key == 53)
-    {
         exit(EXIT_SUCCESS);
-    }
     return (0);
 }
 
