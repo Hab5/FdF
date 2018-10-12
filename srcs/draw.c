@@ -36,8 +36,7 @@ void				draw_line(int draw[4], void *mlx, void *win)
 	}
 }
 
-int					draw_x(double ***coordtable, int y, int x, void *mlx,
-							void *win)
+int					draw_x(double ***coordtable, int y, int x, void *ptr)
 {
 	int				i;
 	int				j;
@@ -53,14 +52,13 @@ int					draw_x(double ***coordtable, int y, int x, void *mlx,
 			draw[1] = coordtable[i][j][1];
 			draw[2] = coordtable[i + 1][j][0];
 			draw[3] = coordtable[i + 1][j][1];
-			draw_line(draw, mlx, win);
+			draw_line(draw, ((t_mlx *)ptr)->mlx, ((t_mlx *)ptr)->win);
 		}
 	}
 	return (1);
 }
 
-int					draw_y(double ***coordtable, int y, int x, void *mlx,
-							void *win)
+int					draw_y(double ***coordtable, int y, int x, void *ptr)
 {
 	int				i;
 	int				j;
@@ -76,7 +74,7 @@ int					draw_y(double ***coordtable, int y, int x, void *mlx,
 			draw[1] = coordtable[i][j][1];
 			draw[2] = coordtable[i][j + 1][0];
 			draw[3] = coordtable[i][j + 1][1];
-			draw_line(draw, mlx, win);
+			draw_line(draw, ((t_mlx *)ptr)->mlx, ((t_mlx *)ptr)->win);
 		}
 	}
 	return (1);

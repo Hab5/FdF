@@ -25,6 +25,18 @@ typedef struct	s_line
 	int			e2;
 }				t_line;
 
+typedef struct	s_ij
+{
+	int			i;
+	int			j;
+}				t_ij;
+
+typedef struct	s_mlx
+{
+	void		*mlx;
+	void		*win;
+}				t_mlx;
+
 long int		**allocate_grid(int x, int y);
 char			**clean(char *str);
 long int		**parse(int line, int column, char *map);
@@ -37,10 +49,10 @@ int				count_columns(char *map);
 
 t_line			init_bresenham(int draw[4]);
 void			draw_line(int draw[4], void *mlx, void *win);
-int				draw_x(double ***positions, int y, int x, void *mlx, void *win);
-int				draw_y(double ***positions, int y, int x, void *mlx, void *win);
+int				draw_x(double ***positions, int y, int x, void *ptr);
+int				draw_y(double ***positions, int y, int x, void *ptr);
 
-int				key_exit(int key);
-float			key_down(int key);
+int				key_exit(int key, void *ptr);
+float			key_down(int key, void *ptr);
 
 #endif

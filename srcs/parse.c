@@ -66,25 +66,24 @@ char				**clean(char *str)
 long int			**parse(const int column, const int line, char *map)
 {
 	long int		**grid;
-	int				y;
-	int				x;
 	char			*str;
 	int				fd;
 	char			**clean_str;
+	t_ij			p;
 
 	grid = allocate_grid(column, line);
-	y = -1;
+	p.j = -1;
 	fd = open(map, O_RDONLY);
-	while (++y < line)
+	while (++p.j < line)
 	{
 		get_next_line(fd, &str);
 		clean_str = clean(str);
-		x = -1;
-		while (++x < column)
+		p.i = -1;
+		while (++p.i < column)
 		{
-			if (clean_str[x] == NULL)
+			if (clean_str[p.i] == NULL)
 				return (0);
-			grid[x][y] = ft_atoi(clean_str[x]);
+			grid[p.i][p.j] = ft_atoi(clean_str[p.i]);
 		}
 	}
 	return (grid);

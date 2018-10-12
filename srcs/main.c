@@ -36,7 +36,7 @@ double				***allocate_xyz(const int x, const int y, const int z)
 	return (xyz);
 }
 
-int					key_exit(int key)
+int					key_exit(int key, void *ptr)
 {
 	if (key == 53)
 		exit(EXIT_SUCCESS);
@@ -45,15 +45,15 @@ int					key_exit(int key)
 
 void				init_draw(double ***positions, int x, int y)
 {
-	void			*mlx;
-	void			*win;
+	t_mlx *ptr;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 1280, 720, "1280x720");
-	mlx_key_hook(win, key_exit, mlx);
-	draw_x(positions, y, x, mlx, win);
-	draw_y(positions, y, x, mlx, win);
-	mlx_loop(mlx);
+	ptr = malloc(sizeof(t_mlx *));
+	ptr->mlx = mlx_init();
+	ptr->win = mlx_new_window(ptr->mlx, 1280, 720, "1280x720");
+	mlx_key_hook(ptr->win, key_exit, ptr);
+	draw_x(positions, y, x, ptr);
+	draw_y(positions, y, x, ptr);
+	mlx_loop(ptr->mlx);
 }
 
 int					main(int argc, char **argv)
