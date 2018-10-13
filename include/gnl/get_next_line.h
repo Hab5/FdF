@@ -6,7 +6,7 @@
 /*   By: mbellaic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 00:15:09 by mbellaic          #+#    #+#             */
-/*   Updated: 2018/09/12 00:15:10 by mbellaic         ###   ########.fr       */
+/*   Updated: 2018/10/13 16:04:01 by mbellaic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "../../libft/libft.h"
 
 # define BUFF_SIZE 64
 

@@ -6,11 +6,11 @@
 /*   By: mbellaic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 23:30:08 by mbellaic          #+#    #+#             */
-/*   Updated: 2018/09/12 00:12:10 by mbellaic         ###   ########.fr       */
+/*   Updated: 2018/10/13 16:07:10 by mbellaic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../include/gnl/get_next_line.h"
 
 int				reset_stock(char **line, char **stock)
 {

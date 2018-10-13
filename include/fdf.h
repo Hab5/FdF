@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbellaic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/13 15:25:02 by mbellaic          #+#    #+#             */
+/*   Updated: 2018/10/13 15:30:23 by mbellaic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
@@ -52,7 +64,6 @@ void			draw_line(int draw[4], void *mlx, void *win);
 int				draw_x(double ***positions, int y, int x, void *ptr);
 int				draw_y(double ***positions, int y, int x, void *ptr);
 
-int				key_exit(int key, void *ptr);
-float			key_down(int key, void *ptr);
+int				key_exit(int key);
 
 #endif

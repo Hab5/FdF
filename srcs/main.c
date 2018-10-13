@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbellaic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/13 15:23:22 by mbellaic          #+#    #+#             */
+/*   Updated: 2018/10/13 15:23:26 by mbellaic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/fdf.h"
 
 long int			**allocate_grid(const int x, const int y)
@@ -36,7 +48,7 @@ double				***allocate_xyz(const int x, const int y, const int z)
 	return (xyz);
 }
 
-int					key_exit(int key, void *ptr)
+int					key_exit(int key)
 {
 	if (key == 53)
 		exit(EXIT_SUCCESS);
